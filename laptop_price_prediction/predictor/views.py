@@ -1,37 +1,4 @@
 
-# from django.shortcuts import render
-# from .forms import LaptopForm
-# import pandas as pd
-# import pickle
-
-# def predict_laptop_price(request):
-#     form = LaptopForm(request.POST or None)
-#     predicted_price = None
-
-#     if request.method == 'POST' and form.is_valid():
-#         # Get form data
-#         form_data = form.cleaned_data
-
-#         # Set the rest of the values to zero as in the input data variable
-#         form_data['Price'] = 0
-#         form_data['TouchScreen'] = int(form_data.get('TouchScreen', False))
-#         form_data['Ips'] = int(form_data.get('Ips', False))
-
-#         # Example input data for prediction
-#         input_data = pd.DataFrame(form_data, index=[0])
-
-#         # Load the trained model
-#         with open('laptop_price_prediction_model.pkl', 'rb') as model_file:
-#             loaded_model = pickle.load(model_file)
-
-#         # Make predictions
-#         predicted_price = loaded_model.predict(input_data)
-
-#     context = {
-#         'form': form,
-#         'predicted_price': predicted_price,
-#     }
-#     return render(request, 'predictor/predict_laptop_price.html', context)
 from django.shortcuts import render
 from .forms import LaptopForm
 import pandas as pd
@@ -93,7 +60,7 @@ def predict_laptop_price(request):
             input_data_df = pd.DataFrame(input_data)
 
             # Load the trained XGBoost model
-            with open('<Path_to_StoredModel>', 'rb') as model_file:
+            with open('/fsx/dataset/laptop_data_cleansed.csv', 'rb') as model_file:
                 loaded_model = pickle.load(model_file)
 
             # Make predictions
