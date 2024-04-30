@@ -1,0 +1,250 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Laptop Price</title>
+</head>
+<body>
+    <h1>Predict Laptop Price</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Predict</button>
+    </form>
+    {% if predicted_price %}
+    <p>Predicted Price: {{ predicted_price }}</p>
+    {% endif %}
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Laptop Price</title>
+</head>
+<body>
+    <h1>Predict Laptop Price</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="company">Company:</label>
+        <select id="company" name="company">
+            <option value="Acer">Acer</option>
+            <option value="Apple">Apple</option>
+            <option value="Asus">Asus</option>
+            
+        </select>
+        <br>
+
+       
+        <label for="typename">Type Name:</label>
+        <select id="typename" name="typename">
+            <option value="2 in 1 Convertible">2 in 1 Convertible</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Notebook">Notebook</option>
+            
+        </select>
+        <br>
+
+       
+        <label for="cpubrand">CPU Brand:</label>
+        <select id="cpubrand" name="cpubrand">
+            <option value="AMD Processor">AMD Processor</option>
+            <option value="Intel Core i3">Intel Core i3</option>
+            <option value="Intel Core i5">Intel Core i5</option>
+            
+        </select>
+        <br>
+
+        
+        <label for="gpubrand">GPU Brand:</label>
+        <select id="gpubrand" name="gpubrand">
+            <option value="AMD">AMD</option>
+            <option value="Intel">Intel</option>
+            <option value="Nvidia">Nvidia</option>
+        
+        </select>
+        <br>
+
+       
+        <label for="os">Operating System:</label>
+        <select id="os" name="os">
+            <option value="Mac">Mac</option>
+            <option value="Windows">Windows</option>
+            <option value="Others">Others</option>
+    
+        </select>
+        <br>
+
+
+        <button type="submit">Predict</button>
+    </form>
+    {% if predicted_price %}
+    <p>Predicted Price: {{ predicted_price }}</p>
+    {% endif %}
+</body>
+</html> -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Laptop Price</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"], input[type="checkbox"], select {
+            width: calc(100% - 20px); /* Adjusted width to account for checkbox */
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .predicted-price {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Predict Laptop Price</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_Ram">RAM:</label>
+        <input type="number" name="Ram" id="id_Ram" value="0" min="0">
+        
+        <label for="id_Weight">Weight (kg):</label>
+        <input type="number" name="Weight" id="id_Weight" value="0" min="0" step="0.01">
+        
+        <label for="id_TouchScreen">Touch Screen:</label>
+        <input type="checkbox" name="TouchScreen" id="id_TouchScreen">
+        
+        <label for="id_Ips">IPS:</label>
+        <input type="checkbox" name="Ips" id="id_Ips">
+        
+        <label for="id_Ppi">PPI:</label>
+        <input type="number" name="Ppi" id="id_Ppi" value="0" min="0" step="0.01">
+        
+        <label for="id_HDD">HDD:</label>
+        <input type="number" name="HDD" id="id_HDD" value="0" min="0">
+        
+        <label for="id_SSD">SSD:</label>
+        <input type="number" name="SSD" id="id_SSD" value="0" min="0">
+        
+        <label for="id_Company">Company:</label>
+        <select name="Company" id="id_Company">
+            <option value="Acer">Acer</option>
+            <option value="Apple">Apple</option>
+            <option value="Asus">Asus</option>
+            <option value="Chuwi">Chuwi</option>
+            <option value="Dell">Dell</option>
+            <option value="Fujitsu">Fujitsu</option>
+            <option value="Google">Google</option>
+            <option value="HP">HP</option>
+            <option value="Huawei">Huawei</option>
+            <option value="LG">LG</option>
+            <option value="Lenovo">Lenovo</option>
+            <option value="MSI">MSI</option>
+            <option value="Mediacom">Mediacom</option>
+            <option value="Microsoft">Microsoft</option>
+            <option value="Razer">Razer</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Toshiba">Toshiba</option>
+            <option value="Vero">Vero</option>
+            <option value="Xiaomi">Xiaomi</option>
+
+        </select>
+        
+        <label for="id_TypeName">Type Name:</label>
+        <select name="TypeName" id="id_TypeName">
+            <option value="2 in 1 Convertible">2 in 1 Convertible</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Netbook">Netbook</option>
+            <option value="Notebook">Notebook</option>
+            <option value="Ultrabook">Ultrabook</option>
+            <option value="Workstation">Workstation</option>
+
+        </select>
+        
+        <label for="id_Cpu_brand">CPU Brand:</label>
+        <select name="Cpu_brand" id="id_Cpu_brand">
+            <option value="AMD Processor">AMD Processor</option>
+            <option value="Intel Core i3">Intel Core i3</option>
+            <option value="Intel Core i5">Intel Core i5</option>
+            <option value="Intel Core i7">Intel Core i7</option>
+            <option value="Other Intel Processor">Other Intel Processor</option>
+
+        </select>
+        
+        <label for="id_Gpu_brand">GPU Brand:</label>
+        <select name="Gpu_brand" id="id_Gpu_brand">
+            <option value="AMD">AMD</option>
+            <option value="Intel">Intel</option>
+            <option value="Nvidia">Nvidia</option>
+            <!-- Add other GPU brand options here -->
+        </select>
+        
+        <label for="id_Os">OS:</label>
+        <select name="Os" id="id_Os">
+            <option value="Mac">Mac</option>
+            <option value="Windows">Windows</option>
+            <option value="Others">Others</option>
+            <!-- Add other OS options here -->
+        </select>
+        
+        <input type="submit" value="Predict">
+    </form>
+    {% if predicted_price %}
+    <p class="predicted-price">Predicted Price: {{ predicted_price }}</p>
+    {% endif %}
+</body>
+</html>
