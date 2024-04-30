@@ -93,7 +93,7 @@ def predict_laptop_price(request):
             input_data_df = pd.DataFrame(input_data)
 
             # Load the trained XGBoost model
-            with open('/Users/Haris/Documents/FSxLab/laptop_price_prediction/laptop_price_prediction_model.pkl', 'rb') as model_file:
+            with open('<Path_to_StoredModel>', 'rb') as model_file:
                 loaded_model = pickle.load(model_file)
 
             # Make predictions
